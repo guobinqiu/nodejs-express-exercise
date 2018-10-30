@@ -1,10 +1,10 @@
 module.exports = {
     port: 8081,
-    mysql: {
+    db: {
         host: '127.0.0.1',
-        user: 'root',
-        password: '111111',
+        user: 'dev',
+        password: '123456',
         database: 'cbtsys',
-        port: '3306'
+        port: 5432
     }
 };
