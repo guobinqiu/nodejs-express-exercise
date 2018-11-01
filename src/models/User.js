@@ -1,8 +1,11 @@
 var bookshelf = require('../config/db');
 
 var User = bookshelf.Model.extend({
-    tableName: 'tbl_user'
+    tableName: 'users',
+    hasTimestamps: true,
+    posts: function () {
+        return this.hasMany('Post');
+    }
 });
 
-module.exports = User;
-
+module.exports = bookshelf.model('User', User);

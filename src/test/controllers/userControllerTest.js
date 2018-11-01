@@ -1,11 +1,11 @@
 var assert = require('assert');
 var request = require('supertest');
 var app = require('../../app.js');
-var User = require('../../models/User');
+var User = require('../../models/user');
 var bookshelf = require('../../config/db');
 
 beforeEach(function () {
-    bookshelf.knex('tbl_user').del().then(function () {
+    bookshelf.knex('users').del().then(function () {
     });
 });
 
