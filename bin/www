@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var app = require('../src/app');
-var config = require('../config/config');
+var config = require('../src/config/config');
 
 app.listen(config.port, function(){
     console.log('App is running, listening on port:', config.port);

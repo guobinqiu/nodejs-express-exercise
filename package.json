@@ -14,8 +14,8 @@
     "pg": "^7.6.0"
   },
   "scripts": {
-    "test": "mocha test/**/*.js",
-    "start": "nodemon bin/www"
+    "test": "./node_modules/mocha/bin/mocha src/test/**/*.js",
+    "start": "./node_modules/nodemon/bin/nodemon.js bin/www"
   },
   "author": "",
   "license": "ISC",

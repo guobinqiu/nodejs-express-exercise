@@ -4,7 +4,4 @@ var knex = require('knex')({
     connection: config.db
 });
 var bookshelf = require('bookshelf')(knex);
-module.exports = {
-    bookshelf: bookshelf,
-    knex: knex
-};
+module.exports = bookshelf;
