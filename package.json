@@ -5,8 +5,10 @@
   "main": "index.js",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "bookshelf": "^0.13.3",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.4",
+    "knex": "^0.15.2",
     "multer": "^1.4.1",
     "nodemon": "^1.18.5",
     "pg": "^7.6.0"

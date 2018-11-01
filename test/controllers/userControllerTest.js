@@ -7,12 +7,14 @@ beforeEach(function () {
 });
 
 describe('userController', function () {
-    it('create', function () {
+    it('create', function (done) {
         request(app)
             .post('/users')
             .send({id: 1, name: 'guobin', age: 30})
             .end(function (err, res) {
                 assert.equal(res.statusCode, 201);
+                assert.equal(res.body.name, 'guobin');
+                assert.equal(res.body.age, 30);
                 done();
             });
     });
