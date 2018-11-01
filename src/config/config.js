@@ -2,9 +2,9 @@ var config = null;
 
 var env = process.env.NODE_ENV;
 
-if (env === 'dev') {
+if (env === 'development') {
     config = require('./env/development');
-} else if (env === 'prod') {
+} else if (env === 'production') {
     config = require('./env/production');
 } else {
     config = require('./env/development');

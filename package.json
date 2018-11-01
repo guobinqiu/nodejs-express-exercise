@@ -8,7 +8,6 @@
     "bookshelf": "^0.13.3",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.4",
-    "knex": "^0.15.2",
     "multer": "^1.4.1",
     "nodemon": "^1.18.5",
     "pg": "^7.6.0"
@@ -21,6 +20,7 @@
   "license": "ISC",
   "devDependencies": {
     "assert": "^1.4.1",
+    "knex": "^0.15.2",
     "mocha": "^5.2.0",
     "request": "^2.88.0",
     "supertest": "^3.3.0"
