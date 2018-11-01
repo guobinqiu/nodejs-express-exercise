@@ -5,6 +5,7 @@ module.exports = {
         user: 'dev',
         password: '123456',
         database: 'cbtsys',
-        port: 5432
+        port: 5432,
+        charset: 'utf8'
     }
 };

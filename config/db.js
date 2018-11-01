@@ -1,5 +1,10 @@
-var pg = require('pg');
 var config = require('./config');
-var pool = new pg.Pool(config.db);
-module.exports = pool;
-
+var knex = require('knex')({
+    client: 'pg',
+    connection: config.db
+});
+var bookshelf = require('bookshelf')(knex);
+module.exports = {
+    bookshelf: bookshelf,
+    knex: knex
+};
