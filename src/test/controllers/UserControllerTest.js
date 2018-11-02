@@ -1,15 +1,17 @@
 var assert = require('assert');
 var request = require('supertest');
 var app = require('../../app.js');
-var User = require('../../models/user');
-var bookshelf = require('../../config/db');
+var User = require('../../models/UserModel');
+var bookshelf = require('../../config/bookshelf');
 
 beforeEach(function () {
+    bookshelf.knex('posts').del().then(function () {
+    });
     bookshelf.knex('users').del().then(function () {
     });
 });
 
-describe('userController', function () {
+describe('UserController', function () {
     it('index', function (done) {
         User.forge({name: 'zhangsan', age: 30}).save().then(function (user) {
             request(app)
