@@ -1,6 +1,6 @@
-var config = null;
+let config = null;
 
-var env = process.env.NODE_ENV;
+let env = process.env.NODE_ENV;
 
 if (env === 'development') {
     config = require('./env/development');
@@ -8,4 +8,4 @@ if (env === 'development') {
     config = require('./env/development');
 }
 
-module.exports = config;
+export = config;
