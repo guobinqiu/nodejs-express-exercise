@@ -4,5 +4,5 @@ A NodeJs exercise basically built with:
 - postgresql
 - bookshelf
 - mocha
-
-plus typescript.
+- typescript
+- async/await
