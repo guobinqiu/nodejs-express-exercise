@@ -6,52 +6,44 @@ import * as express from 'express';
 const router = express.Router();
 
 router.route('/')
-    .post((req, res) => {
-        User.forge({name: req.body.name, age: req.body.age}).save().then((user) => {
-            res.status(201).json(user);
-        });
+    .post(async (req, res) => {
+        let user = await User.forge({name: req.body.name, age: req.body.age}).save();
+        res.status(201).json(user);
     })
 
-    .get((req, res) => {
-        User.forge().fetchAll().then((users) => {
-            res.status(200).json(users);
-        });
+    .get(async (req, res) => {
+        let users = await User.forge().fetchAll();
+        res.status(200).json(users);
     })
 ;
 
 router.route('/:id')
-    .put((req, res) => {
-        User.forge({id: req.params.id}).save({name: req.body.name, age: req.body.age}).then((user) => {
-            res.status(200).json(user);
-        });
+    .put(async (req, res) => {
+        let user = await User.forge({id: req.params.id}).save({name: req.body.name, age: req.body.age});
+        res.status(200).json(user);
     })
 
-    .delete((req, res) => {
-        User.forge({id: req.params.id}).destroy().then((user) => {
-            res.status(200).json(user);
-        });
+    .delete(async (req, res) => {
+        let user = await User.forge({id: req.params.id}).destroy();
+        res.status(200).json(user);
     })
 
-    .get((req, res) => {
-        User.forge({id: req.params.id}).fetch().then((user) => {
-            res.status(200).json(user);
-        });
+    .get(async (req, res) => {
+        let user = await User.forge({id: req.params.id}).fetch();
+        res.status(200).json(user);
     })
 ;
 
 router.route('/:id/posts')
-    .get((req, res) => {
-        User.forge({id: req.params.id}).fetch({withRelated: 'posts'}).then((user) => {
-            res.status(200).json(user.related('posts'));
-        });
+    .get(async (req, res) => {
+        let user = await User.forge({id: req.params.id}).fetch({withRelated: 'posts'});
+        res.status(200).json(user.related('posts'));
     })
 
-    .post((req, res) => {
-        User.forge({id: req.params.id}).save().then(function (user) {
-            user.posts().create(new Post({title: req.body.title, content: req.body.content})).then((post) => {
-                res.status(201).json(post);
-            });
-        });
+    .post(async (req, res) => {
+        let user = await User.forge({id: req.params.id}).save();
+        let post = await user.posts().create(new Post({title: req.body.title, content: req.body.content}));
+        res.status(201).json(post);
     })
 ;
 
